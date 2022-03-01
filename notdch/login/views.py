@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
+from django.db import connection
+
 from .forms import LoginForm
 from .models import Patient
 
@@ -9,15 +11,28 @@ def login(request):
         form = LoginForm(request.POST)
         
         if form.is_valid():
-            user = Patient.objects.get(username=form.cleaned_data['username'])
+            username=form.cleaned_data['username']
+            password=form.cleaned_data['password']
             
-            if user.password == form.cleaned_data['password']:
-                return render(request, 'success.html')
-                #return HttpResponseRedirect('/success/')
             
-            else:
+            cursor = connection.cursor()
+            cursor.execute("SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'")
+            record = cursor.fetchone()    
+            
+            if record == None:
                 return render(request, 'failure.html')
-                #return HttpResponseRedirect('/failure/')
+            
+            user = record[0]
+            return render(request, 'success.html', context={"user" : record[0]})
+            # user = Patient.objects.get(username=form.cleaned_data['username'])
+            
+            # if user.password == form.cleaned_data['password']:
+            #     return render(request, 'success.html')
+            #     #return HttpResponseRedirect('/success/')
+            
+            # else:
+            #     return render(request, 'failure.html')
+            #     #return HttpResponseRedirect('/failure/')
             
         
     else:
