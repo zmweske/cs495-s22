@@ -20,7 +20,7 @@ def login(request):
             record = cursor.fetchone()    
             
             if record == None:
-                return render(request, 'failure.html')
+                return render(request, 'login.html', {'error_message': 'Incorrect username or password!'})
             
             user = record[0]
             return render(request, 'success.html', context={"user" : record[0]})
