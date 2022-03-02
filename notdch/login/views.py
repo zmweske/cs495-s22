@@ -1,3 +1,4 @@
+from statistics import multimode
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
@@ -16,7 +17,8 @@ def login(request):
             
             
             cursor = connection.cursor()
-            cursor.execute("SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'")
+            sqlStatment = "SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'"
+            cursor.execute(sqlStatment)
             record = cursor.fetchone()    
             
             if record == None:
