@@ -21,9 +21,9 @@ def login(request):
                 cursor.execute(sqlStatment)
                 record = cursor.fetchone()    
             except:
-                return render(request, 'login.html', {'error_message': 'ERROR- Check your MySQL Syntax before continuing'})
+                return render(request, 'login.html', {'error_message': 'ERROR- Check your MySQL Syntax before continuing', 'form': form})
             if record == None:
-                return render(request, 'login.html', {'error_message': 'Incorrect username or password!'})
+                return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form})
             
             username = record[0]
             user = Patient.objects.get(username=username)
