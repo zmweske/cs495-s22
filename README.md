@@ -23,3 +23,18 @@ docker-compose down
 cd ../..
 rm -r ./cs495-s22/
 ```
+
+## Vulnerabilities Baked In!
+- [x] SQLi for first user access
+- [x] SQLi for admin access
+- [x] leaked creds
+
+- [ ] SQLi password extraction
+- [x] plaintext pwds
+- [ ] simple hashed pwds
+- [ ] complex hashed pwds
+- [ ] salted+hash pwds
+
+- [ ] brute force login (rate limiting)
+- [x] Error information gathering
+- [ ] Reset password info recon
