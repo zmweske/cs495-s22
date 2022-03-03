@@ -15,17 +15,19 @@ def login(request):
             username=form.cleaned_data['username']
             password=form.cleaned_data['password']
             
-            
-            cursor = connection.cursor()
-            sqlStatment = "SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'"
-            cursor.execute(sqlStatment)
-            record = cursor.fetchone()    
-            
+            try:
+                cursor = connection.cursor()
+                sqlStatment = "SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'"
+                cursor.execute(sqlStatment)
+                record = cursor.fetchone()    
+            except:
+                return render(request, 'login.html', {'error_message': 'ERROR- Check your MySQL Syntax before continuing'})
             if record == None:
                 return render(request, 'login.html', {'error_message': 'Incorrect username or password!'})
             
-            user = record[0]
-            return render(request, 'success.html', context={"user" : record[0]})
+            username = record[0]
+            user = Patient.objects.get(username=username)
+            return render(request, 'success.html', context={"user" : username, "date" : user.patient_since})
             # user = Patient.objects.get(username=form.cleaned_data['username'])
             
             # if user.password == form.cleaned_data['password']:
