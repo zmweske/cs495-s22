@@ -1,11 +1,14 @@
 # Not DCH - a dynamic and containerized software security learning platform!
 
 ## Run from Docker!!
-`git clone https://github.com/zmweske/cs495-s22.git`
 
-`cd cs495-s22/patient-login`
+After installing Docker, run the following commands to get set up. 
 
-`docker-compose up -d`
+```sh
+git clone https://github.com/zmweske/cs495-s22.git
+cd cs495-s22/patient-login
+docker-compose up -d
+```
 
 Visit [`localhost:8000/login`](http://localhost:8000/login) in your browser and start testing the application!
 
