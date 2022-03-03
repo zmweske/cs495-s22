@@ -25,16 +25,19 @@ rm -r ./cs495-s22/
 ```
 
 ## Vulnerabilities Baked In!
+Basic vulnerabilities
 - [x] SQLi for first user access
 - [x] SQLi for admin access
 - [x] leaked creds
 
+Password vulnerabilities
 - [ ] SQLi password extraction
 - [x] plaintext pwds
 - [ ] simple hashed pwds
 - [ ] complex hashed pwds
 - [ ] salted+hash pwds
 
+Framework vulnerabilities
 - [ ] brute force login (rate limiting)
 - [x] Error information gathering
 - [ ] Reset password info recon
