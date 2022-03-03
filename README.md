@@ -1,5 +1,7 @@
 # Not DCH - a dynamic and containerized software security learning platform!
 
+Visit [jake-cloud.github.io/GitPagesTesting](https://jake-cloud.github.io/GitPagesTesting/) for more information about our project. 
+
 ## Run from Docker!!
 
 After installing Docker, run the following commands to get set up. 
