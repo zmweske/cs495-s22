@@ -20,7 +20,7 @@ def search(request):
             #match_queryset = Doctor.objects.filter(Q(first_name__icontains=first_name) | Q(first_name__icontains=last_name) | Q(last_name__icontains=first_name) | Q(last_name__icontains=last_name))
             queryset = match_queryset.filter(hidden=False)
             
-            return render(request, 'search.html', context={'queryset':queryset})  
+            return render(request, 'search.html', context={'queryset':queryset, 'form': form})  
             
         
     else:
