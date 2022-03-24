@@ -61,9 +61,3 @@ def success(request):
 
 def failure(request):
     return render(request, 'failure.html')
-
-def doctor(request):
-    return render(request, 'doctor.html', {'navbar': 'doctor'})
-
-def payment(request):
-    return render(request, 'payment.html', {'navbar': 'payment'})
