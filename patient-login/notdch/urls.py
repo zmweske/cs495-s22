@@ -20,6 +20,7 @@ from login.views import home, login, doctor
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('login/', include('login.urls'))
+    path('', login, name='home'),
+    path('login/', include('login.urls')),
+    path('search/', include('doctorSearch.urls')),
 ]
