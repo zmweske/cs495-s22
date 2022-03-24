@@ -1,4 +1,6 @@
-<html>
+{% extends 'base.html' %}
+{% block title %} Doctor Search Page {% endblock %}
+{% block body %} 
     <form action="/search/" method="post">
         {% csrf_token %} 
         
@@ -10,4 +12,4 @@
     {% for each_model in queryset %}
         <p>{{each_model.first_name}} {{each_model.last_name}} {{each_model.department}}</p>
     {% endfor %}
-</html>
+{% endblock %}
