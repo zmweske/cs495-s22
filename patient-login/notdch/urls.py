@@ -16,11 +16,11 @@ Including another URLconf
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include
-from login.views import home, login, doctor
+from login.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', login, name='home'),
+    path('', home, name='home'),
     path('login/', include('login.urls')),
     path('search/', include('doctorSearch.urls')),
 ]
