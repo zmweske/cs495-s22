@@ -8,7 +8,7 @@ After installing Docker, run the following commands to get set up.
 
 ```sh
 git clone https://github.com/zmweske/cs495-s22.git
-cd cs495-s22/
+cd cs495-s22/ 
 docker-compose up -d
 ```
 
