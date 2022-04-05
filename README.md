@@ -1,4 +1,4 @@
-# Not DCH - a dynamic and containerized software security learning platform!
+# Not DCH - a dynamic and containerized software/web security learning platform!
 
 Visit https://jake-cloud.github.io/GitPagesTesting/index.html for more information about our project. 
 
