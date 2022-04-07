@@ -6,7 +6,6 @@ from .models import Doctor
 from .forms import SearchForm
 
 def search(request):
-    errorMsg = None
     if request.method == 'POST':
         form = SearchForm(request.POST)
         
@@ -22,7 +21,9 @@ def search(request):
             #match_queryset = Doctor.objects.filter(Q(first_name__icontains=first_name) | Q(first_name__icontains=last_name) | Q(last_name__icontains=first_name) | Q(last_name__icontains=last_name))
             #queryset = match_queryset.filter(hidden=False)
             
-            #return render(request, 'search.html', context={'queryset':queryset, 'form': form})  
+            #return render(request, 'search.html', context={'queryset':queryset, 'form': form}) 
+            errorMsg = None
+            records = None 
             name = form.cleaned_data['name'].rsplit(' ')
             if(len(name) > 1):
                 firstName = name[0]
@@ -33,7 +34,7 @@ def search(request):
 
             try:
                 cursor = connection.cursor()
-                sqlStatement = "SELECT * FROM doctorSearch_doctor WHERE first_name=\'"+firstName+"\'  OR first_name=\'"+lastName+"\'  OR last_name=\'"+firstName+"\'  OR last_name=\'"+lastName+"\'"
+                sqlStatement = "SELECT first_name, last_name, department FROM doctorSearch_doctor WHERE first_name=\'"+firstName+"\' OR first_name=\'"+lastName+"\' OR last_name=\'"+firstName+"\' OR last_name=\'"+lastName+"\'"
                 cursor.execute(sqlStatement)
                 records = cursor.fetchall()
 
@@ -48,10 +49,12 @@ def search(request):
             if errorMsg == None:
                 doctorInfo = []
                 for record in records:
-                    info = {"firstName": record[1], "lastName": record[2], "department": record[3]}
+                    info = {"firstName": record[0], "lastName": record[1], "department": record[2]}
                     doctorInfo.append(info)
 
                 return render(request, 'search.html', context={'queryset': doctorInfo, 'form': form})
+            
+            return render(request, 'search.html', {'error_message': errorMsg, 'form': form})
 
             
         
