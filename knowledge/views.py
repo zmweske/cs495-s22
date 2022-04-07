@@ -5,6 +5,7 @@ from .models import Solution
 from .forms import FlagForm
 
 import os
+import time
 
 # import zach's code
 from .update import update_file
@@ -39,8 +40,8 @@ def patch(request, flag):
     print(file_path)
     
     update_file(file_path, tokens["old_method"], tokens["new_method"])
-    
-    return HttpResponseRedirect('/'+name+'/')
+    #time.sleep(2000)
+    return HttpResponseRedirect('/')
     
 def revert(request, flag):
     solution = Solution.objects.get(flag=flag)

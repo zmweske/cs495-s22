@@ -30,7 +30,7 @@ def login(request):
             
             username = record[0] # method_1
             
-            # try:
+            # try: # method_2
                 # user = Patient.objects.get(username=username) # method_2
                 # if Patient.objects.get(username=username).password == password: # method_2
                     # return render(request, 'success.html', context={"user" : username, "date" : user.patient_since}) # method_2
@@ -40,13 +40,16 @@ def login(request):
             # except: # method_2
                 # return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form}) # method_2
 
+            user = Patient.objects.get(username=username)
+            return render(request, 'success.html', context={"user" : username, "date" : user.patient_since}) # method_1                             
                         
             
         
     else:
         form = LoginForm()
         
-    return render(request, 'login.html', {'form': form, 'navbar': 'login'})
+    return render(request, 'login.html', {'form': form, 'navbar': 'login'}) # method_htmlU
+    # return render(request, 'login_noleak.html', {'form': form, 'navbar': 'login'}) # method_htmlS
 
 def home(request):
     return render(request, 'home.html', {'navbar': 'home'})
