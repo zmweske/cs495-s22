@@ -34,7 +34,7 @@ def search(request):
 
             try:
                 cursor = connection.cursor()
-                sqlStatement = "SELECT first_name, last_name, department FROM doctorSearch_doctor WHERE first_name=\'"+firstName+"\' OR first_name=\'"+lastName+"\' OR last_name=\'"+firstName+"\' OR last_name=\'"+lastName+"\'"
+                sqlStatement = "SELECT id, first_name, last_name, department FROM doctorSearch_doctor WHERE first_name=\'"+firstName+"\' OR first_name=\'"+lastName+"\' OR last_name=\'"+firstName+"\' OR last_name=\'"+lastName+"\'"
                 cursor.execute(sqlStatement)
                 records = cursor.fetchall()
 
@@ -49,7 +49,7 @@ def search(request):
             if errorMsg == None:
                 doctorInfo = []
                 for record in records:
-                    info = {"firstName": record[0], "lastName": record[1], "department": record[2]}
+                    info = {"firstName": record[1], "lastName": record[2], "department": record[3]}
                     doctorInfo.append(info)
 
                 return render(request, 'search.html', context={'queryset': doctorInfo, 'form': form})
