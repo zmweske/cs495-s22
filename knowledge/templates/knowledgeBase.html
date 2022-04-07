@@ -17,6 +17,12 @@
     {% if solution %}
         <p> Congrats! Learn about the vulnerability that you used </p>
         <p>{{solution.description}}</p>
-        <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
+        <p>{{solution.flag}}</p>
+        <p>{{solution.solved}}</p>
+        {% if solution.solved == True %}
+            <p> Want to revert changes and make it vulnerable again? Click <a href="/revert/{{solution.flag}}"/>this</a> button! </p>
+        {% else %}
+            <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
+        {% endif %}
     {% endif %}
 {% endblock %}
