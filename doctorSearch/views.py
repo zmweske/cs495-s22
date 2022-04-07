@@ -46,7 +46,7 @@ def search(request):
             if errorMsg == None: # method_2
                 doctorInfo = [] # method_2
                 for record in records: # method_2
-                    info = {"firstName": record[1], "lastName": record[2], "department": record[3]} # method_2
+                    info = {"first_name": record[1], "last_name": record[2], "department": record[3]} # method_2
                     doctorInfo.append(info) # method_2
 
                 return render(request, 'search.html', context={'queryset': doctorInfo, 'form': form}) # method_2
