@@ -4,7 +4,10 @@ from django.http import HttpResponseRedirect
 from .models import Solution
 from .forms import FlagForm
 
+import os
+
 # import zach's code
+from .update import update_file
 
 def knowledgeBase(request):
     if request.method == 'POST':
@@ -27,5 +30,15 @@ def knowledgeBase(request):
     return render(request, 'knowledgeBase.html', {'form': form})
             
 def patch(request, flag):
-    #do nothing, will use tokens to do zach's file patching
-    return HttpResponseRedirect('/')
+    solution = Solution.objects.get(flag=flag)
+    tokens = solution.tokens
+    mod_name = solution.mod_source
+    name = solution.source
+    file_path = mod_name+'/views.py'
+    print(file_path)
+    
+    update_file(file_path, tokens["old_method"], tokens["new_method"])
+    
+    return HttpResponseRedirect('/'+name+'/')
+    
+    

@@ -1,0 +1,13 @@
+<html>
+    <form action="/search/" method="post">
+        {% csrf_token %} 
+        
+        <input type="text" id="form.name" name="{{form.name.html_name}}" />
+
+        <button type="submit" value="submit">search</button>
+    </form>
+
+    {% for each_model in queryset %}
+        <p>{{each_model.first_name}} {{each_model.last_name}} {{each_model.department}}</p>
+    {% endfor %}
+</html>

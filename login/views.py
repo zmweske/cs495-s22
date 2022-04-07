@@ -18,34 +18,25 @@ def login(request):
             username=form.cleaned_data['username']
             password=form.cleaned_data['password']
             
-            try:
-                cursor = connection.cursor()
-                sqlStatment = "SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'"
-                cursor.execute(sqlStatment)
-                record = cursor.fetchone()    
-            except:
-                #return render(request, 'login.html', {'error_message': 'ERROR- Check your MySQL Syntax before continuing', 'form': form})
-                errorMsg = 'ERROR- Check your MySQL Syntax before continuing'
-                
-            if record == None and errorMsg == None:
-                #return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form})
-                errorMsg = 'Incorrect username or password!'
-
-            if errorMsg == None:
-                username = record[0]
-                user = Patient.objects.get(username=username)
-                return render(request, 'success.html', context={"user" : username, "date" : user.patient_since})
-
-            return render(request, 'login.html', {'error_message': errorMsg, 'form': form, 'navbar': 'login'})
+            # try: # method_1
+                # cursor = connection.cursor() # method_1
+                # sqlStatment = "SELECT username FROM login_patient WHERE username=\'"+username+"\' AND password=\'"+password+"\'" # method_1
+                # cursor.execute(sqlStatment) # method_1
+                # record = cursor.fetchone()    # method_1
+            # except: # method_1
+                # return render(request, 'login.html', {'error_message': 'ERROR- Check your MySQL Syntax before continuing', 'form': form}) # method_1
+            # if record == None: # method_1
+                # return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form}) # method_1
+            
+            # username = record[0] # method_1
+            
+            user = Patient.objects.get(username=username)
+            if Patient.objects.get(username=username).password != password: # method_2
+                return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form}) # method_2
+            
+            return render(request, 'success.html', context={"user" : username, "date" : user.patient_since})
             # user = Patient.objects.get(username=form.cleaned_data['username'])
             
-            # if user.password == form.cleaned_data['password']:
-            #     return render(request, 'success.html')
-            #     #return HttpResponseRedirect('/success/')
-            
-            # else:
-            #     return render(request, 'failure.html')
-            #     #return HttpResponseRedirect('/failure/')
             
         
     else:

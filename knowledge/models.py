@@ -6,3 +6,4 @@ class Solution(models.Model):
     description = models.TextField()
     tokens = models.JSONField()
     source = models.CharField(max_length=50)
+    mod_source = models.CharField(max_length=50)
