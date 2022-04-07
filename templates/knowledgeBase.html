@@ -20,7 +20,7 @@
     <div class="row mt-3 p-3">
         {% if solution %}
             <p> Congrats! Learn about the vulnerability that you used </p>
-            <p>{{solution.description}}</p>
+            <p>{{solution.description|linebreaks}}</p>
             <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
         {% endif %}
     </div>
