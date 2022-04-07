@@ -2,7 +2,7 @@
 {% block title %} Doctor Search Page {% endblock %}
 {% block body %} 
 
-    <div class="container row p-3 d-flex bg-secondary bg-opacity-10">
+    <div class="row p-3 bg-secondary bg-opacity-10">
         <h5 class="">Find a Doctor</h5>
         <small> Search using doctor's name </small>
         <form class="" action="/search/" method="post">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{each_model.firstName}} {{each_model.lastName}}</h5>
+                            <h5 class="card-title">{{each_model.first_name}} {{each_model.last_name}}</h5>
                             <p class="card-text">Department: {{each_model.department}}</p>
                         </div>
                     </div>
