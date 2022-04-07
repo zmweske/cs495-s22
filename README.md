@@ -1,4 +1,4 @@
-# Not DCH - a dynamic and containerized software security learning platform!
+# Not DCH - a dynamic and containerized software/web security learning platform!
 
 Visit https://jake-cloud.github.io/GitPagesTesting/index.html for more information about our project. 
 
@@ -8,7 +8,7 @@ After installing Docker, run the following commands to get set up.
 
 ```sh
 git clone https://github.com/zmweske/cs495-s22.git
-cd cs495-s22/
+cd cs495-s22/ 
 docker-compose up -d
 ```
 
