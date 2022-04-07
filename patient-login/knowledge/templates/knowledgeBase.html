@@ -15,6 +15,6 @@
     {% if solution %}
         <p> Congrats! Learn about the vulnerability that you used </p>
         <p>{{solution.description}}</p>
-        <p> To fix the solution, click <a href="/patch/flag={{solution.flag}}"/>this</a> button! </p>
+        <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
     {% endif %}
 </html>
