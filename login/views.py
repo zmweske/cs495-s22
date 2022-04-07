@@ -30,16 +30,17 @@ def login(request):
             
             username = record[0] # method_1
             
-            try:
-                user = Patient.objects.get(username=username)
-                # if Patient.objects.get(username=username).password != password: # method_2
+            # try:
+                # user = Patient.objects.get(username=username) # method_2
+                # if Patient.objects.get(username=username).password == password: # method_2
+                    # return render(request, 'success.html', context={"user" : username, "date" : user.patient_since}) # method_2
+                # else: # method_2
                     # return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form}) # method_2
-            except:
-                return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form}) 
-            
-            return render(request, 'success.html', context={"user" : username, "date" : user.patient_since})
-            # user = Patient.objects.get(username=form.cleaned_data['username'])
-            
+
+            # except: # method_2
+                # return render(request, 'login.html', {'error_message': 'Incorrect username or password!', 'form': form}) # method_2
+
+                        
             
         
     else:
