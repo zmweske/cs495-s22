@@ -7,3 +7,4 @@ class Solution(models.Model):
     tokens = models.JSONField()
     source = models.CharField(max_length=50)
     mod_source = models.CharField(max_length=50)
+    solved = models.BooleanField(default=False)

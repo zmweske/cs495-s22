@@ -31,6 +31,7 @@ def knowledgeBase(request):
             
 def patch(request, flag):
     solution = Solution.objects.get(flag=flag)
+    solution.solved = True
     tokens = solution.tokens
     mod_name = solution.mod_source
     name = solution.source
@@ -41,4 +42,14 @@ def patch(request, flag):
     
     return HttpResponseRedirect('/'+name+'/')
     
+def revert(request, flag):
+    solution = Solution.objects.get(flag=flag)
+    tokens = solution.tokens
+    mod_name = solution.mod_source
+    name = solution.source
+    file_path = mod_name+'/views.py'
+    print(file_path)
     
+    update_file(file_path, tokens["new_method"], tokens["old_method"])
+    
+    return HttpResponseRedirect('/'+name+'/')
