@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %} Knowledge base Page {% endblock %}
+{% block body %} 
+    <p> Knowledge base testing </p>
     <form action='/knowledgeBase/' method="post">
         {% csrf_token %} 
 
@@ -17,4 +19,4 @@
         <p>{{solution.description}}</p>
         <p> To fix the solution, click <a href="/patch/flag={{solution.flag}}"/>this</a> button! </p>
     {% endif %}
-</html>
+{% endblock %}
