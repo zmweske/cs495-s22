@@ -8,6 +8,9 @@ from .forms import LoginForm
 from .models import Patient
 
 def login(request):
+    errorMsg = None
+    record = None
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         
@@ -39,10 +42,10 @@ def login(request):
     else:
         form = LoginForm()
         
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'login.html', {'form': form, 'navbar': 'login'})
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'navbar': 'home'})
 
 def success(request):
     return render(request, 'success.html')

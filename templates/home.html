@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} Not DCH Home Page {% endblock %}
+{% block body %}
+  <div class="container mt-4 mb-4 d-flex">
+    <h1 class="bg-white text-center">Welcome to the Not DCH Website!</h1>
+  </div>
+  <div class="container">
+    <div class="row p-1">
+      <div class="col-sm-4">
+          <div class="card my-2 shadow h-100">
+              <div class="card-body text-center">
+                <h4 class="card-title">Patient Portal</h4>
+                <a href="/login/" class="btn btn-dark">Login!</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-4">
+          <div class="card my-2 shadow h-100">
+              <div class="card-body text-center">
+                <h4 class="card-title">Doctor Search</h4>
+                <a href="/search/" class="btn btn-dark">Search!</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-4">
+          <div class="card my-2 shadow h-100">
+              <div class="card-body text-center">
+                <h4 class="card-title">Bill Payment</h4>
+                <a href="/payment/" class="btn btn-dark">Pay!</a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="row p-5"></div>
+    <div class="row p-1">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="card my-2 shadow h-100">
+          <div class="card-body text-center">
+            <h4 class="card-title">CTF Flag Lookup</h4>
+            <a href="/knowledgeBase/" class="btn btn-dark">Hack!</a>
+          </div>
+        </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+{% endblock %}

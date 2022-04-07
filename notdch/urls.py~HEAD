@@ -23,7 +23,10 @@ urlpatterns = [
     path('', home, name='home'),
     path('login/', include('login.urls')),
     path('search/', include('doctorSearch.urls')),
+<<<<<<< HEAD:notdch/urls.py
     path('payment/', include('payment.urls')),
+=======
     path('hub/', include('knowledge.urls')),
     path('', include('knowledge.urls')),
+>>>>>>> 56cec9bbde9337d334930404c2b3997f12f46cea:patient-login/notdch/urls.py
 ]
