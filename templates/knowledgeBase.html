@@ -1,27 +1,37 @@
 {% extends 'base.html' %}
 {% block title %} Knowledge base Page {% endblock %}
 {% block body %}
-    <div class="row p-3">
-        <h5 class="">Flag Submition</h5>
-        <small> Submit your flag here </small>
-        <form action='/knowledgeBase/' method="post">
-            {% csrf_token %} 
-    
-            <!-- Error message testing -->
-            {% if error_message %}
-                <p class="bg-danger bg-opacity-85 text-center text-white">{{ error_message }}</p>
-            {% endif %}
-    
-            <input type="text" id="form.flag" name="{{form.flag.html_name}}" placeholder="Enter a flag" />
-            <input type="submit" value="submit">
-        </form>
+    <div class="row">
+        <div class="col">
+            <div class="row p-3">
+                <h5 class="">Flag Submition</h5>
+                <small> Submit your flag here </small>
+                <form action='/knowledgeBase/' method="post">
+                    {% csrf_token %} 
+            
+                    <!-- Error message testing -->
+                    {% if error_message %}
+                        <p class="bg-danger bg-opacity-85 text-center text-white">{{ error_message }}</p>
+                    {% endif %}
+            
+                    <input type="text" id="form.flag" name="{{form.flag.html_name}}" placeholder="Enter a flag" />
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+
+            <div class="row mt-3 p-3">
+                {% if solution %}
+                    <p> Congrats! Learn about the vulnerability that you used </p>
+                    <p>{{solution.description|linebreaks}}</p>
+                    <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col">
+            {% for vulnerability in solved %}
+                <p> {{vulnerability.description|linebreaks}}
+            {% endfor %}
+        </div>
     </div>
 
-    <div class="row mt-3 p-3">
-        {% if solution %}
-            <p> Congrats! Learn about the vulnerability that you used </p>
-            <p>{{solution.description|linebreaks}}</p>
-            <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
-        {% endif %}
-    </div>
 {% endblock %}

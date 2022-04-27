@@ -11,6 +11,7 @@ import time
 from .update import update_file
 
 def knowledgeBase(request):
+    solved = Solution.objects.filter(solved=True)
     if request.method == 'POST':
         form = FlagForm(request.POST)
         
@@ -19,16 +20,17 @@ def knowledgeBase(request):
             
             try:
                 solution = Solution.objects.get(flag=flag)
+                solved = Solution.objects.filter(solved=True)
                 return render(request, 'knowledgeBase.html', 
-                    context = {'solution':solution, 'form':form})
+                    context = {'solution':solution, 'form':form, 'solved': solved})
             except:
                 return render(request, 'knowledgeBase.html',
-                    context = {'error_message': 'Flag not found', 'form': form})
+                    context = {'error_message': 'Flag not found', 'form': form, 'solved': solved})
                 
     else:
         form = FlagForm()
         
-    return render(request, 'knowledgeBase.html', {'form': form})
+    return render(request, 'knowledgeBase.html', {'form': form, 'solved': solved})
             
 def patch(request, flag):
     solution = Solution.objects.get(flag=flag)
