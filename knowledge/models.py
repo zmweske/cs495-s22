@@ -8,3 +8,4 @@ class Solution(models.Model):
     source = models.CharField(max_length=50)
     mod_source = models.CharField(max_length=50)
     solved = models.BooleanField(default=False)
+    fixed = models.BooleanField(default=False)
