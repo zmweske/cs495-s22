@@ -46,7 +46,7 @@ def patch(request, flag):
     solution.fixed = True
     solution.save()
     #time.sleep(2000)
-    return HttpResponseRedirect('/knowledgeBase')
+    return(knowledgeBase(request))
     
 def revert(request, flag):
     solution = Solution.objects.get(flag=flag)
@@ -60,4 +60,4 @@ def revert(request, flag):
     solution.fixed = False
     solution.save()
     
-    return HttpResponseRedirect('/knowledgeBase')
+    return(knowledgeBase(request))
