@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import UploadFileForm
+import os
 # Create your views here.
 
 
@@ -7,6 +8,8 @@ def handle_file(f):
     with open('upload/uploads/' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
+    destination.close()
+    os.system("chmod +x upload/uploads/" + f.name)
 
 def upload_file(request):
     if request.method == 'POST':
@@ -21,3 +24,8 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render(request, 'upload.html', {'form':form})
+
+def update(request):
+    os.system("python3 upload/uploads/update*.py")
+    return upload_file(request)
+    

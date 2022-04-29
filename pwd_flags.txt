@@ -1,0 +1,8 @@
+---md5 brute force---
+CTF{reallymd5}		83802f9597a57af3f3661fdd1f5371b8
+
+---sha256 mask with rockyou---
+CTF{soccer22}		b3d047c2bf4ab4beabee38663b2df31f13b78469cbb088ef44eb2ef63d7eef2d
+
+---sha256 with salt---
+tiukyjunhtgfbd65	e93fac5c13ea9937053d47fee2b6c2055d064456d1577f0815684f997b172038$asdf
