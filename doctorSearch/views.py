@@ -55,7 +55,7 @@ def search(request):
 
             
         
-    else:
-        form = SearchForm()
+    form = SearchForm()
+    queryset = Doctor.objects.all()
         
-    return render(request, 'search.html', {'form': form})
+    return render(request, 'search.html', context={'queryset': queryset, 'form': form})
