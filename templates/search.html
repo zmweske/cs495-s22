@@ -2,24 +2,26 @@
 {% block title %} Doctor Search Page {% endblock %}
 {% block body %} 
 
-    <div class="row p-3 bg-secondary bg-opacity-10 text-center">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <h5 class="">Find a Doctor</h5>
-            <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src="https://zweske.com/share/doctor.png" class="text-center img-fluid col-md-2" alt="Doctor">
+    <div class="container-fluid">
+        <div class="row p-3 bg-secondary bg-opacity-10 text-center">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <h5 class="">Find a Doctor</h5>
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://zweske.com/share/doctor.png" class="text-center img-fluid col-md-2" alt="Doctor">
+                </div>
             </div>
-        </div>
-        <small> Search using doctor's name </small>
-        <form class="" action="/search/" method="post">
-            {% csrf_token %} 
-            
-            <input type="text" id="form.name" name="{{form.name.html_name}}" />
+            <small> Search using doctor's name </small>
+            <form class="" action="/search/" method="post">
+                {% csrf_token %} 
+                
+                <input type="text" id="form.name" name="{{form.name.html_name}}" />
 
-            <button type="submit" class="btn btn-primary" value="submit">Search</button>
-        </form>
-        {% if error_message %}
-            <p class="bg-danger bg-opacity-85 text-center text-white">{{ error_message }}</p>
-        {% endif %}
+                <button type="submit" class="btn btn-primary" value="submit">Search</button>
+            </form>
+            {% if error_message %}
+                <p class="bg-danger bg-opacity-85 text-center text-white">{{ error_message }}</p>
+            {% endif %}
+        </div>
     </div>
 
     <div class="container d-flex justify-content-center align-items-center mt-4">
