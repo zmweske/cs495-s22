@@ -20,6 +20,8 @@ def knowledgeBase(request):
             
             try:
                 solution = Solution.objects.get(flag=flag)
+                solution.solved = True
+                solution.save()
                 solved = Solution.objects.filter(solved=True)
                 return render(request, 'knowledgeBase.html', 
                     context = {'solution':solution, 'form':form, 'solved': solved})
@@ -34,7 +36,6 @@ def knowledgeBase(request):
             
 def patch(request, flag):
     solution = Solution.objects.get(flag=flag)
-    solution.solved = True
     tokens = solution.tokens
     mod_name = solution.mod_source
     name = solution.source
@@ -42,8 +43,6 @@ def patch(request, flag):
     print(file_path)
     
     update_file(file_path, tokens["old_method"], tokens["new_method"])
-    #time.sleep(2000)
-    return HttpResponseRedirect('/')
     
 def revert(request, flag):
     solution = Solution.objects.get(flag=flag)
@@ -54,5 +53,3 @@ def revert(request, flag):
     print(file_path)
     
     update_file(file_path, tokens["new_method"], tokens["old_method"])
-    
-    return HttpResponseRedirect('/'+name+'/')

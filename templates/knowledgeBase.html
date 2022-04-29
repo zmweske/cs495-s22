@@ -29,7 +29,10 @@
         </div>
         <div class="col">
             {% for vulnerability in solved %}
-                <p> {{vulnerability.description|linebreaks}}
+                <h1> {{vulnerability.flag}}</h1>
+                <p> {{vulnerability.description|linebreaks}} </p>
+                <p> To fix the solution, click <a href="/patch/{{vulnerability.flag}}"/>this</a> button!</p>
+                <p> To un-fix the solution, click <a href="/revert/{{vulnerability.flag}}"/>this</a> button!</p>
             {% endfor %}
         </div>
     </div>
