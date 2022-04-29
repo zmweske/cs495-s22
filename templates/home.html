@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
 {% block title %} Not DCH Home Page {% endblock %}
 {% block body %}
-  <div class="container mt-4 mb-4 d-flex">
-    <h1 class="bg-white text-center">Welcome to the Not DCH Website!</h1>
+
+  <div class="row justify-content-center">
+    <h1 class="bg-white text-center my-4">Welcome to the Not DCH Website!</h1>
+    <div class="card mb-3 border-0">
+      <img src="https://bit.ly/3kmWhMB" class="card-img-top">
+      <div class="card-body text-center">
+        <a href="/login/" class="btn btn-dark mx-5">Patient Portal</a>
+        <a href="/payment/" class="btn btn-dark mx-5">Bill Payments</a>
+        <a href="/search/" class="btn btn-dark mx-5">Doctor Search</a>
+      </div>
+    </div>
   </div>
-  <div class="container">
+  <!---<div class="container">
     <div class="row p-1">
       <div class="col-sm-4">
           <div class="card my-2 shadow h-100">
@@ -43,5 +52,45 @@
         </div>
       <div class="col-sm-3"></div>
     </div>
+  </div> -->
+  <!-- <div class="card mb-3" style="">
+    <div class="row g-0">
+      <div class="col-4">
+        <div class="card-body text-center">
+          <h4 class="card-title">Patient Portal</h4>
+          <a href="/login/" class="btn btn-dark">Login!</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <img src="https://bit.ly/3vo19HG" class="img-fluid">
+      </div>
+    </div>
   </div>
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-4">
+        <div class="card-body text-center">
+          <h4 class="card-title">Doctor Search</h4>
+          <a href="/search/" class="btn btn-dark">Search!</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <img src="https://bit.ly/3rXqkhW" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-4">
+        <div class="card-body text-center">
+          <h4 class="card-title">Bill Payment</h4>
+          <a href="/payment/" class="btn btn-dark">Pay!</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <img src="https://bit.ly/3kmWhMB" class="img-fluid">
+      </div>
+    </div>
+  </div> -->
+
 {% endblock %}
