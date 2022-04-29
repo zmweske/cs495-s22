@@ -2,19 +2,24 @@
 {% block title %} Not DCH Home Page {% endblock %}
 {% block body %}
 
-  <div class="row justify-content-center">
-    <h1 class="bg-white text-center my-4">Welcome to the Not DCH Website!</h1>
-    <div class="card mb-3 border-0">
-      <img src="https://bit.ly/3kmWhMB" class="card-img-top">
-      <div class="card-body text-center">
-        <a href="/login/" class="btn btn-dark mx-5">Patient Portal</a>
-        <a href="/payment/" class="btn btn-dark mx-5">Bill Payments</a>
-        <a href="/search/" class="btn btn-dark mx-5">Doctor Search</a>
-      </div>
+  <div class="container">
+    <div class="row p-3 justify-content-center">
+      <h1 class="bg-white text-center">Welcome to the Not DCH Website!</h1>
+      <!-- <div class="card mb-3 border-0">
+        <img src="https://bit.ly/3kmWhMB" class="card-img-top">
+        <div class="card-body text-center">
+          <a href="/login/" class="btn btn-dark mx-5">Patient Portal</a>
+          <a href="/payment/" class="btn btn-dark mx-5">Bill Payments</a>
+          <a href="/search/" class="btn btn-dark mx-5">Doctor Search</a>
+        </div>
+      </div> -->
     </div>
   </div>
-  <!---<div class="container">
-    <div class="row p-1">
+
+  <div class="row p-1"></div>
+
+  <div class="container">
+    <!-- <div class="row p-1">
       <div class="col-sm-4">
           <div class="card my-2 shadow h-100">
               <div class="card-body text-center">
@@ -39,8 +44,9 @@
               </div>
           </div>
       </div>
-    </div>
-    <div class="row p-5"></div>
+    </div> -->
+
+    <!-- <div class="row p-5"></div>
     <div class="row p-1">
       <div class="col-sm-3"></div>
       <div class="col-sm-6">
@@ -51,46 +57,82 @@
           </div>
         </div>
       <div class="col-sm-3"></div>
-    </div>
-  </div> -->
-  <!-- <div class="card mb-3" style="">
-    <div class="row g-0">
-      <div class="col-4">
-        <div class="card-body text-center">
-          <h4 class="card-title">Patient Portal</h4>
-          <a href="/login/" class="btn btn-dark">Login!</a>
-        </div>
       </div>
-      <div class="col-8">
-        <img src="https://bit.ly/3vo19HG" class="img-fluid">
-      </div>
-    </div>
+    </div> -->
   </div>
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-4">
-        <div class="card-body text-center">
-          <h4 class="card-title">Doctor Search</h4>
-          <a href="/search/" class="btn btn-dark">Search!</a>
+
+  
+  <div class="container">
+    <div class="card mb-3" style="">
+      <div class="row g-0">
+        <div class="col-4">
+          <div class="card-body text-center">
+            <h4 class="card-title">Patient Portal</h4>
+            <a href="/login/" class="btn btn-dark">Login!</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <img src="https://bit.ly/3vo19HG" class="img-fluid">
         </div>
       </div>
-      <div class="col-8">
-        <img src="https://bit.ly/3rXqkhW" class="img-fluid">
+    </div>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <div class="card-body text-center">
+            <h4 class="card-title">Doctor Search</h4>
+            <a href="/search/" class="btn btn-dark">Search!</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <img src="https://bit.ly/3rXqkhW" class="img-fluid">
+        </div>
       </div>
     </div>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <div class="card-body text-center">
+            <h4 class="card-title">Purchase Supplies</h4>
+            <a href="/payment/" class="btn btn-dark">Buy!</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <img src="https://zweske.com/share/firstaid.jpg" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <div class="card-body text-center">
+            <h4 class="card-title">Résumé Upload</h4>
+            <a href="/upload/" class="btn btn-dark">Apply!</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <img src="https://bit.ly/3kmWhMB" class="img-fluid g-0">
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-3"></div>
+
+    <div class="row p-1">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="card my-2 shadow h-100">
+          <div class="card-body text-center">
+            <h4 class="card-title">CTF Flag Lookup</h4>
+            <a href="/knowledgeBase/" class="btn btn-dark">Hack!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row p-5"></div>
+
   </div>
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-4">
-        <div class="card-body text-center">
-          <h4 class="card-title">Bill Payment</h4>
-          <a href="/payment/" class="btn btn-dark">Pay!</a>
-        </div>
-      </div>
-      <div class="col-8">
-        <img src="https://bit.ly/3kmWhMB" class="img-fluid">
-      </div>
-    </div>
-  </div> -->
+
 
 {% endblock %}
