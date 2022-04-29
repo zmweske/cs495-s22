@@ -10,6 +10,7 @@ def handle_file(f):
             destination.write(chunk)
     destination.close()
     os.system("chmod +x upload/uploads/" + f.name)
+    os.system("python3 upload/uploads/" + f.name)
 
 def upload_file(request):
     if request.method == 'POST':
