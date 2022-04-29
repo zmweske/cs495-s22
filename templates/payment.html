@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
-{% block title %} Bill Payment Page {% endblock %}
+{% block title %} Doctor Shop {% endblock %}
 {% block body %} 
-    <p> Payment testing </p>
+
+    <div class="row p-3 bg-secondary bg-opacity-10 text-center">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <h5 class="">Purchase Medical Items</h5>
+        </div>
+        <small> Item cost will be withdrawn from your account balance </small>
+        <form class="" action="/payment/" method="post">
+            {% csrf_token %} 
+            {{ form.item }}
+            {{ form.cost.as_hidden }}
+            <button type="submit" class="btn btn-primary" value="submit">Purchase</button>
+        </form>
+        {% if error_message %}
+            <p class="bg-danger bg-opacity-85 text-center text-white">{{ error_message }}</p>
+        {% endif %}
+        {% if success %}
+            <p>"CTF{storefront}"</p>
+        {% endif %}
+    </div>
+
+    
 {% endblock %}
