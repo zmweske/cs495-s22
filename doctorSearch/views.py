@@ -18,7 +18,7 @@ def search(request):
             first_name = name[0]
             last_name = name[0] if len(name) < 2 else name[1]
             
-            # #match_queryset = Doctor.objects.filter(first_name__contains=form.cleaned_data['name']) # method_1
+            # match_queryset = Doctor.objects.filter(first_name__contains=form.cleaned_data['name']) # method_1
             match_queryset = Doctor.objects.filter(Q(first_name__icontains=first_name) | Q(first_name__icontains=last_name) | Q(last_name__icontains=first_name) | Q(last_name__icontains=last_name))
             # queryset = match_queryset.filter(hidden=False) # method_1
             

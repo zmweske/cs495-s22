@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} Knowledge base Page {% endblock %}
 {% block body %}
-    <div class="row">
+    <div class="row m-2">
         <div class="col">
             <div class="row p-3">
                 <h5 class="">Flag Submition</h5>
@@ -21,18 +21,31 @@
 
             <div class="row mt-3 p-3">
                 {% if solution %}
-                    <p> Congrats! Learn about the vulnerability that you used </p>
-                    <p>{{solution.description|linebreaks}}</p>
-                    <p> To fix the solution, click <a href="/patch/{{solution.flag}}"/>this</a> button! </p>
+                    <p> Congrats! You have found a vulnerability ({{solution.flag}}) in our website! On the right will be a list of all the vulnerabilites you have found. There you can find descriptions of the vulnerabilites and buttons to patch or re-enable the vulnerabilities. </p>
                 {% endif %}
             </div>
         </div>
         <div class="col">
             {% for vulnerability in solved %}
-                <h1> {{vulnerability.flag}}</h1>
-                <p> {{vulnerability.description|linebreaks}} </p>
-                <p> To fix the solution, click <a href="/patch/{{vulnerability.flag}}"/>this</a> button!</p>
-                <p> To un-fix the solution, click <a href="/revert/{{vulnerability.flag}}"/>this</a> button!</p>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{vulnerability.flag}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted pt-2">Current State</h6>
+                        {% if vulnerability.fixed %}
+                            <p class="card-text"> Patched </p>
+                        {% else %}
+                            <p class="card-text"> Vulnerable </p>
+                        {% endif %}
+                        <h6 class="card-subtitle mb-2 text-muted pt-2">Description</h6>
+                        <p class="card-text"> {{vulnerability.description}} </p>
+                        <h6 class="card-subtitle mb-2 text-muted pt-2">Vulnerable Code</h6>
+                        <p class="card-text"> {{vulnerability.vulnerable_code}} </p>
+                        <h6 class="card-subtitle mb-2 text-muted pt-2">Fixed Code</h6>
+                        <p class="card-text"> {{vulnerability.fixed_code}} </p>
+                        <a href="/patch/{{vulnerability.flag}}" class="btn btn-primary"> Patch </a>
+                        <a href="/revert/{{vulnerability.flag}}" class="btn btn-primary"> Un-patch </a>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>

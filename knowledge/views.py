@@ -43,6 +43,10 @@ def patch(request, flag):
     print(file_path)
     
     update_file(file_path, tokens["old_method"], tokens["new_method"])
+    solution.fixed = True
+    solution.save()
+    #time.sleep(2000)
+    return HttpResponseRedirect('/knowledgeBase')
     
 def revert(request, flag):
     solution = Solution.objects.get(flag=flag)
@@ -53,3 +57,7 @@ def revert(request, flag):
     print(file_path)
     
     update_file(file_path, tokens["new_method"], tokens["old_method"])
+    solution.fixed = False
+    solution.save()
+    
+    return HttpResponseRedirect('/knowledgeBase')
